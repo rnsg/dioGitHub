@@ -1,1 +1,71 @@
-New.file
+def calcular():
+    while True:
+        try:
+            # Solicitação dos números para a operação
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+        except ValueError:
+            print("Erro: valores inválidos. Por favor, insira números válidos.")
+            continue
+
+        print("\nEscolha a operação que deseja realizar:")
+        print("1. Soma")
+        print("2. Subtração")
+        print("3. Multiplicação")
+        print("4. Divisão")
+        print("5. Potência")
+        print("6. Operações Lógicas")
+        print("7. Sair da aplicação")
+
+        operacao = input("Escolha a operação (1/2/3/4/5/6/7): ")
+
+        if operacao == "1":
+            resultado = num1 + num2
+            print(f"O resultado da soma é: {resultado}")
+        elif operacao == "2":
+            resultado = num1 - num2
+            print(f"O resultado da subtração é: {resultado}")
+        elif operacao == "3":
+            resultado = num1 * num2
+            print(f"O resultado da multiplicação é: {resultado}")
+        elif operacao == "4":
+            if num2 != 0:
+                resultado = num1 / num2
+                print(f"O resultado da divisão é: {resultado}")
+            else:
+                print("Erro: Não é possível dividir por zero.")
+        elif operacao == "5":
+            resultado = num1 ** num2
+            print(f"O resultado de {num1} elevado a {num2} é: {resultado}")
+        elif operacao == "6":
+            print("\nEscolha a operação lógica:")
+            print("a. AND")
+            print("b. OR")
+            print("c. NOT")
+            logica = input("Escolha a operação lógica (a/b/c): ").lower()
+
+            if logica == "a":
+                resultado = bool(num1) and bool(num2)
+                print(f"O resultado de {num1} AND {num2} é: {resultado}")
+            elif logica == "b":
+                resultado = bool(num1) or bool(num2)
+                print(f"O resultado de {num1} OR {num2} é: {resultado}")
+            elif logica == "c":
+                resultado = not bool(num1)
+                print(f"O resultado de NOT {num1} é: {resultado}")
+            else:
+                print("Opção inválida para operação lógica.")
+        elif operacao == "7":
+            print("Saindo da aplicação...")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+        continuar = input("\nDeseja realizar outra operação? (s/n): ").lower()
+        if continuar != 's':
+            print("Programa encerrado.")
+            break
+
+if __name__ == "__main__":
+    print("\n--- Calculadora de Operações ---")
+    calcular()
